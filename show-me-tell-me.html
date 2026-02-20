@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Me, Tell Me Questions | DriveElite</title>
+    <meta name="description"
+        content="Prepare for your practical driving test with our complete list of DVSA Show Me, Tell Me vehicle safety questions and answers.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            background-color: #0f172a;
+            /* Dark theme background */
+            color: #f8fafc;
+        }
+
+        .page-header {
+            background: linear-gradient(to bottom right, #0a0a0f, #131221, #1a162b);
+            padding: 140px 0 80px 0;
+            color: white;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .btn-filter {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-filter.active,
+        .btn-filter:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 0 15px rgba(228, 41, 117, 0.4);
+        }
+
+        .smtm-card-dark {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--secondary);
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .smtm-card-dark:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border-left-color: var(--primary);
+        }
+
+        .smtm-card-dark h4 {
+            color: #f8fafc;
+        }
+
+        .smtm-card-dark p {
+            color: #cbd5e1;
+        }
+
+        .bottom-cta {
+            background: linear-gradient(135deg, rgba(20, 30, 60, 0.8), rgba(10, 15, 30, 0.8));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="navbar-modern glass">
+        <div class="container nav-content-modern flex-row align-center justify-between">
+            <div class="logo-modern text-white">
+                <i class="fa-solid fa-file-contract text-primary text-2xl"></i>
+                <div class="logo-text">
+                    <span class="font-bold text-white text-xl">DRIVE</span><span
+                        class="text-primary text-xl">ELITE</span>
+                    <span class="logo-tagline text-xs block text-primary">YOUR FASTER ROUTE TO DRIVING</span>
+                </div>
+            </div>
+
+            <div class="contact-login flex-row align-center gap-medium">
+                <!-- Opening Hours -->
+                <div class="opening-hours text-white text-sm border-right pr-medium hidden-mobile">
+                    <span class="text-primary font-bold"><i class="fa-regular fa-clock mr-xs"></i>Mon-Fri:</span> 8am -
+                    8pm
+                </div>
+                <!-- whatsapp -->
+                <div class="whatsapp text-white text-sm border-right pr-medium hidden-mobile">
+                    <a href="https://wa.me/447777777777" class="text-white hover-text-primary transition-fast">
+                        <span class="text-primary font-bold"><i class="fa-brands fa-whatsapp mr-xs"></i></span>
+                        07777777777
+                    </a>
+
+                </div>
+
+                <!-- Google Rating -->
+                <div
+                    class="google-rating-nav flex-row align-center gap-xs text-white text-sm border-right pr-medium hidden-mobile">
+                    <i class="fa-brands fa-google text-lg"></i>
+                    <span class="font-bold">4.9/5</span>
+                    <div class="stars text-warning flex-row text-xs gap-xs">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="social-nav flex-row gap-sm text-lg">
+                    <a href="#" class="text-white hover-text-primary transition-fast"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="text-white hover-text-primary transition-fast"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="text-white hover-text-primary transition-fast"><i
+                            class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-links-modern border-top-subtle">
+            <div class="container flex-row justify-around py-sm font-bold text-white text-sm">
+                <a href="index.html" class="hover-text-primary text-white">HOME</a>
+                <a href="#about" class="hover-text-primary text-white">ABOUT US</a>
+                <a href="#courses" class="hover-text-primary text-white">COURSES</a>
+                <a href="#reviews" class="hover-text-primary text-white">REVIEWS</a>
+                <a href="show-me-tell-me.html" class="hover-text-primary text-white">SHOW ME TELL ME</a>
+                <a href="#contact" class="hover-text-primary text-white">CONTACT US</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Promo Banner -->
+    <div class="promo-banner text-white font-bold text-center py-sm">
+        <i class="fa-solid fa-stopwatch text-xl"></i>
+        <span>Get an extra 5% (up to £200) off your course at point of purchase when you pay in full today!</span>
+    </div>
+
+    <!-- Trust Badges Bar -->
+    <div class="trust-bar bg-dark-blue text-white py-sm border-bottom-subtle">
+        <div class="container flex-row justify-around text-xs font-semibold">
+            <div class="flex-row gap-xs align-center"><i class="fa-solid fa-stopwatch"></i> Fast-track your driving
+                tests</div>
+            <div class="flex-row gap-xs align-center"><i class="fa-solid fa-pound-sign icon-circle-sm"></i> Money-Back
+                Guarantee</div>
+            <div class="flex-row gap-xs align-center"><i class="fa-solid fa-arrows-spin"></i> Flexible courses</div>
+            <div class="flex-row gap-xs align-center"><i class="fa-solid fa-money-bill-transfer"></i> Pay in instalments
+            </div>
+            <div class="flex-row gap-xs align-center"><i class="fa-solid fa-star text-light"></i> Great on Trustpilot
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container relative-z">
+            <h1 class="font-outfit text-5xl font-bold mb-medium">Show Me, Tell Me <span
+                    class="text-gradient">Questions</span></h1>
+            <p class="text-lg max-w-lg mx-auto leading-relaxed text-muted">Master the DVSA vehicle safety questions
+                before your practical test. Learn exactly what the examiner will ask and how to answer confidently.</p>
+        </div>
+        <!-- Animated Background Orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </header>
+
+    <main class="section container relative-z" style="min-height: 60vh; padding-top: 60px; padding-bottom: 80px;">
+
+        <div class="filter-buttons">
+            <button class="btn-filter active" data-filter="all">All Questions</button>
+            <button class="btn-filter" data-filter="tell">"Tell Me" (Before Driving)</button>
+            <button class="btn-filter" data-filter="show">"Show Me" (While Driving)</button>
+        </div>
+
+        <div class="smtm-grid" id="questions-grid">
+            <!-- Q1 -->
+            <div class="smtm-card-dark question-card" data-category="tell">
+                <div class="flex-row justify-between align-center mb-sm">
+                    <span class="bg-blue text-white text-xs font-bold px-md py-xs radius-full">Tell Me</span>
+                </div>
+                <h4 class="font-bold text-lg mb-xs"><span class="text-primary mr-xs">Q:</span> Tell me how you'd check
+                    that the brakes are working before starting a journey.</h4>
+                <p class="text-md leading-relaxed border-left-subtle pl-sm"><strong>A:</strong> Brakes should not feel
+                    spongy or slack. Brakes should be tested as you set off. Vehicle should not pull to one side.</p>
+            </div>
+
+            <!-- Q2 -->
+            <div class="smtm-card-dark question-card" data-category="tell">
+                <div class="flex-row justify-between align-center mb-sm">
+                    <span class="bg-blue text-white text-xs font-bold px-md py-xs radius-full">Tell Me</span>
+                </div>
+                <h4 class="font-bold text-lg mb-xs"><span class="text-primary mr-xs">Q:</span> Tell me where you'd find
+                    the info for the recommended tyre pressures for this car.</h4>
+                <p class="text-md leading-relaxed border-left-subtle pl-sm"><strong>A:</strong> You can find this in the
+                    manufacturer's guide, or sometimes on a sticker inside the driver's door shut, or inside the fuel
+                    filler flap.</p>
+            </div>
+
+            <!-- Q3 -->
+            <div class="smtm-card-dark question-card" data-category="tell">
+                <div class="flex-row justify-between align-center mb-sm">
+                    <span class="bg-blue text-white text-xs font-bold px-md py-xs radius-full">Tell Me</span>
+                </div>
+                <h4 class="font-bold text-lg mb-xs"><span class="text-primary mr-xs">Q:</span> Tell me how you make sure
+                    your head restraint is correctly adjusted.</h4>
+                <p class="text-md leading-relaxed border-left-subtle pl-sm"><strong>A:</strong> The head restraint
+                    should be adjusted so the rigid part of the head restraint is at least as high as the eye or top of
+                    the ears, and as close to the back of the head as is comfortable.</p>
+            </div>
+
+            <!-- Q4 -->
+            <div class="smtm-card-dark question-card" data-category="show">
+                <div class="flex-row justify-between align-center mb-sm">
+                    <span class="bg-pink text-white text-xs font-bold px-md py-xs radius-full">Show Me</span>
+                </div>
+                <h4 class="font-bold text-lg mb-xs"><span class="text-primary mr-xs">Q:</span> Show me how you'd check
+                    that the horn is working.</h4>
+                <p class="text-md leading-relaxed border-left-subtle pl-sm"><strong>A:</strong> Turn on ignition if
+                    necessary. Check is carried out by pressing the horn (or center of steering wheel) and listening for
+                    the sound.</p>
+            </div>
+
+            <!-- Q5 -->
+            <div class="smtm-card-dark question-card" data-category="show">
+                <div class="flex-row justify-between align-center mb-sm">
+                    <span class="bg-pink text-white text-xs font-bold px-md py-xs radius-full">Show Me</span>
+                </div>
+                <h4 class="font-bold text-lg mb-xs"><span class="text-primary mr-xs">Q:</span> Show me how you'd clean
+                    the windscreen using the washers and wipers.</h4>
+                <p class="text-md leading-relaxed border-left-subtle pl-sm"><strong>A:</strong> Turn on ignition if
+                    necessary. Operate the right-hand stalk (usually by pulling it towards you) to spray washer fluid
+                    and activate wipers.</p>
+            </div>
+
+            <!-- Q6 -->
+            <div class="smtm-card-dark question-card" data-category="show">
+                <div class="flex-row justify-between align-center mb-sm">
+                    <span class="bg-pink text-white text-xs font-bold px-md py-xs radius-full">Show Me</span>
+                </div>
+                <h4 class="font-bold text-lg mb-xs"><span class="text-primary mr-xs">Q:</span> Show me how you'd open
+                    the window and safely close it again.</h4>
+                <p class="text-md leading-relaxed border-left-subtle pl-sm"><strong>A:</strong> Operate the window
+                    control button on the door panel to fully open and then fully close the window.</p>
+            </div>
+
+            <!-- Q7 -->
+            <div class="smtm-card-dark question-card" data-category="tell">
+                <div class="flex-row justify-between align-center mb-sm">
+                    <span class="bg-blue text-white text-xs font-bold px-md py-xs radius-full">Tell Me</span>
+                </div>
+                <h4 class="font-bold text-lg mb-xs"><span class="text-primary mr-xs">Q:</span> Tell me how you would
+                    check that the headlights and tail lights are working.</h4>
+                <p class="text-md leading-relaxed border-left-subtle pl-sm"><strong>A:</strong> Explain you'd operate
+                    the switch (turn on ignition if necessary), then walk round vehicle to check the lights are on.</p>
+            </div>
+
+            <!-- Q8 -->
+            <div class="smtm-card-dark question-card" data-category="tell">
+                <div class="flex-row justify-between align-center mb-sm">
+                    <span class="bg-blue text-white text-xs font-bold px-md py-xs radius-full">Tell Me</span>
+                </div>
+                <h4 class="font-bold text-lg mb-xs"><span class="text-primary mr-xs">Q:</span> Tell me how you would
+                    know if there was a problem with your anti-lock braking system.</h4>
+                <p class="text-md leading-relaxed border-left-subtle pl-sm"><strong>A:</strong> Warning light should
+                    illuminate if there is a fault with the anti-lock braking system.</p>
+            </div>
+
+            <!-- Q9 -->
+            <div class="smtm-card-dark question-card" data-category="show">
+                <div class="flex-row justify-between align-center mb-sm">
+                    <span class="bg-pink text-white text-xs font-bold px-md py-xs radius-full">Show Me</span>
+                </div>
+                <h4 class="font-bold text-lg mb-xs"><span class="text-primary mr-xs">Q:</span> Show me how you'd switch
+                    on your dipped headlights and then switch to main beam.</h4>
+                <p class="text-md leading-relaxed border-left-subtle pl-sm"><strong>A:</strong> Turn on ignition or
+                    start engine if necessary. Operate the light switch to dipped headlights, then switch to main beam.
+                    Check the main beam warning light is on.</p>
+            </div>
+        </div>
+
+        <div class="mt-large text-center bottom-cta radius-lg p-large shadow-lg flex-col align-center">
+            <h3 class="font-outfit text-3xl font-bold text-white mb-sm">Ready to put your knowledge to the test?</h3>
+            <p class="text-muted text-lg mb-medium max-w-lg mx-auto">Book an intensive driving course today and get
+                fast-tracked to your practical driving test in weeks, not months.</p>
+            <a href="index.html#book"
+                class="btn btn-pink px-lg py-medium font-bold text-lg radius-full shadow-md hover-scale glow-effect">Find
+                My Course</a>
+        </div>
+
+    </main>
+
+    <footer class="glass-dark border-top-subtle py-large text-center">
+        <p class="text-muted">© 2026 DriveElite. All rights reserved.</p>
+    </footer>
+
+    <!-- Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.btn-filter');
+            const questionCards = document.querySelectorAll('.question-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    const filterValue = button.getAttribute('data-filter');
+
+                    questionCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

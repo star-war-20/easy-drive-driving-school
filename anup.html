@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northstar Driving Studio</title>
+    <meta name="description" content="Modern driving school website with custom content and demo visuals." />
+    <style>
+        :root {
+            --bg: #f4f8ff;
+            --surface: #ffffff;
+            --text: #17243a;
+            --muted: #576a88;
+            --line: #dbe5f3;
+            --brand: #0f766e;
+            --brand-2: #0b5b55;
+            --accent: #f59e0b;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --shadow: 0 14px 32px rgba(23, 36, 58, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(900px 380px at -10% -10%, #dcf8ef 0%, transparent 60%),
+                radial-gradient(700px 320px at 110% 0%, #ffecc6 0%, transparent 60%),
+                var(--bg);
+            line-height: 1.65;
+            font-weight: 400;
+        }
+
+        .container {
+            width: min(1140px, 92%);
+            margin: 0 auto;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(10px);
+            background: rgba(244, 248, 255, 0.86);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0d5f59;
+            letter-spacing: 0.2px;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            box-shadow: 0 0 0 5px rgba(15, 118, 110, 0.16);
+        }
+
+        .menu {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #304565;
+            font-size: 0.92rem;
+            font-weight: 500;
+        }
+
+        .menu a:hover {
+            color: var(--brand);
+        }
+
+        .hero {
+            padding: 74px 0 38px;
+            display: grid;
+            grid-template-columns: 1.06fr 0.94fr;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid #bde8de;
+            background: #e8fbf5;
+            color: #0e6b60;
+            border-radius: 999px;
+            padding: 7px 12px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.3px;
+            font-weight: 650;
+        }
+
+        .hero p {
+            margin: 0 0 20px;
+            color: var(--muted);
+            max-width: 60ch;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .btn {
+            text-decoration: none;
+            border-radius: 12px;
+            padding: 11px 17px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            border: 1px solid transparent;
+            transition: 180ms ease;
+        }
+
+        .btn.primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            box-shadow: 0 9px 22px rgba(15, 118, 110, 0.22);
+        }
+
+        .btn.ghost {
+            color: #294161;
+            background: #fff;
+            border-color: #c8d7ec;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .quick-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .quick-tags span {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 6px 10px;
+            color: #3a4f70;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        .hero-card {
+            border-radius: var(--radius-lg);
+            background: linear-gradient(145deg, #0f766e 0%, #114c73 60%, #1a2b47 100%);
+            color: #e5f6ff;
+            box-shadow: var(--shadow);
+            padding: 18px;
+            overflow: hidden;
+        }
+
+        .hero-card h3 {
+            margin: 0 0 6px;
+            color: #fff;
+            font-size: 1.22rem;
+            font-weight: 600;
+        }
+
+        .hero-card p {
+            margin: 0 0 11px;
+            color: #d5edf8;
+            font-size: 0.95rem;
+        }
+
+        .hero-svg {
+            border: 1px solid rgba(255, 255, 255, 0.26);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .hero-svg svg {
+            width: 100%;
+            display: block;
+            height: 220px;
+        }
+
+        .stats {
+            margin: 4px 0 34px;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .stat {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(23, 36, 58, 0.05);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.4rem;
+            line-height: 1;
+            margin-bottom: 7px;
+            color: #0e645c;
+            font-weight: 650;
+        }
+
+        section {
+            padding: 28px 0;
+        }
+
+        .title {
+            margin: 0 0 8px;
+            font-size: clamp(1.4rem, 2.6vw, 2.15rem);
+            font-weight: 650;
+            letter-spacing: -0.2px;
+        }
+
+        .lead {
+            margin: 0 0 16px;
+            color: var(--muted);
+            font-weight: 400;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            box-shadow: 0 8px 20px rgba(23, 36, 58, 0.05);
+        }
+
+        .chip {
+            display: inline-block;
+            background: #f0f6ff;
+            border: 1px solid #cfe0f4;
+            color: #24507a;
+            border-radius: 999px;
+            padding: 5px 10px;
+            font-size: 0.74rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card h3 {
+            margin: 0 0 7px;
+            font-size: 1.08rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            margin: 0;
+            color: #566987;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .shot {
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .shot svg {
+            width: 100%;
+            height: 220px;
+            display: block;
+        }
+
+        .shot p {
+            margin: 0;
+            padding: 11px 12px;
+            border-top: 1px solid var(--line);
+            color: #395073;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .steps {
+            counter-reset: st;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .step {
+            position: relative;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 14px 14px 14px 50px;
+        }
+
+        .step::before {
+            counter-increment: st;
+            content: counter(st);
+            position: absolute;
+            left: 13px;
+            top: 13px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            background: linear-gradient(135deg, var(--brand), var(--accent));
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .step h3 {
+            margin: 0 0 7px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .step p {
+            margin: 0;
+            color: #586a89;
+        }
+
+        .faq {
+            display: grid;
+            gap: 10px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .faq-btn {
+            width: 100%;
+            border: 0;
+            background: #fff;
+            text-align: left;
+            padding: 13px 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1e3353;
+            cursor: pointer;
+        }
+
+        .faq-content {
+            display: none;
+            padding: 0 14px 14px;
+            color: #556987;
+            font-size: 0.94rem;
+        }
+
+        .faq-item.open .faq-content {
+            display: block;
+        }
+
+        .cta {
+            margin: 34px 0 46px;
+            border-radius: 22px;
+            border: 1px solid #31527d;
+            background:
+                radial-gradient(250px 140px at 87% 20%, #f59e0b3d 0%, transparent 70%),
+                linear-gradient(145deg, #153b61, #102841);
+            color: #e8f2ff;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            box-shadow: var(--shadow);
+        }
+
+        .cta h3 {
+            margin: 0 0 7px;
+            color: #fff;
+            font-size: 1.42rem;
+            font-weight: 600;
+        }
+
+        .cta p {
+            margin: 0;
+            color: #c8def9;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            text-align: center;
+            padding: 18px 0 28px;
+            color: #6f82a3;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1020px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .grid-3,
+            .gallery,
+            .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .menu {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 52px;
+            }
+
+            .stats,
+            .grid-3,
+            .gallery,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="container nav">
+            <div class="brand"><span class="dot"></span>Northstar Driving Studio</div>
+            <nav class="menu">
+                <a href="#courses">Courses</a>
+                <a href="#gallery">Demo Images</a>
+                <a href="#process">Process</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero" id="home">
+            <div>
+                <span class="badge">Personalized Driving Lessons</span>
+                <h1>Learn Faster, Drive Safer, Pass with Confidence</h1>
+                <p>
+                    Welcome to Northstar Driving Studio. We offer modern manual and automatic driving lessons with clear
+                    milestones,
+                    practical coaching, and a learner-first approach that helps you improve quickly.
+                </p>
+                <div class="actions">
+                    <a class="btn primary" href="#contact">Book a Free Call</a>
+                    <a class="btn ghost" href="#courses">View Courses</a>
+                </div>
+                <div class="quick-tags">
+                    <span>Beginner Friendly</span>
+                    <span>Flexible Scheduling</span>
+                    <span>Road-Test Focused</span>
+                </div>
+            </div>
+
+            <aside class="hero-card">
+                <h3>Why learners choose us</h3>
+                <p>Clear plans, supportive instructors, and smart preparation built for real exam outcomes.</p>
+                <div class="hero-svg">
+                    <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" role="img"
+                        aria-label="Driving lesson hero image">
+                        <defs>
+                            <linearGradient id="hbg" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#8cdcff" />
+                                <stop offset="100%" stop-color="#e3f8ff" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="600" height="300" fill="url(#hbg)" />
+                        <rect y="205" width="600" height="95" fill="#5d8d6f" />
+                        <rect y="223" width="600" height="77" fill="#31445f" />
+                        <rect y="257" width="600" height="7" fill="#dce6f2" />
+                        <rect x="40" y="250" width="55" height="4" fill="#dce6f2" />
+                        <rect x="145" y="250" width="55" height="4" fill="#dce6f2" />
+                        <rect x="250" y="250" width="55" height="4" fill="#dce6f2" />
+                        <rect x="355" y="250" width="55" height="4" fill="#dce6f2" />
+                        <rect x="460" y="250" width="55" height="4" fill="#dce6f2" />
+                        <rect x="170" y="156" width="255" height="56" rx="18" fill="#104c79" />
+                        <rect x="220" y="132" width="135" height="34" rx="10" fill="#bcecff" />
+                        <circle cx="224" cy="214" r="23" fill="#1d2f47" />
+                        <circle cx="368" cy="214" r="23" fill="#1d2f47" />
+                        <circle cx="224" cy="214" r="10" fill="#9eb0c9" />
+                        <circle cx="368" cy="214" r="10" fill="#9eb0c9" />
+                    </svg>
+                </div>
+            </aside>
+        </section>
+
+        <section class="stats" aria-label="Quick stats">
+            <div class="stat"><strong>92%</strong>Pass-focused preparation model</div>
+            <div class="stat"><strong>3</strong>Flexible course pathways</div>
+            <div class="stat"><strong>5000+</strong>Instructor network benchmark</div>
+            <div class="stat"><strong>2-5 hrs</strong>Session intensity options</div>
+        </section>
+
+        <section id="courses">
+            <h2 class="title">Course Options</h2>
+            <p class="lead">Choose your path based on your current skill level and target test date.</p>
+            <div class="grid-3">
+                <article class="card">
+                    <span class="chip">Beginner Track</span>
+                    <h3>30-40 Hours Foundation Plan</h3>
+                    <p>For first-time learners who need complete training from basics to confident independent driving.
+                    </p>
+                </article>
+                <article class="card">
+                    <span class="chip">Intermediate Track</span>
+                    <h3>20-25 Hours Progress Plan</h3>
+                    <p>For learners with previous experience who want stronger road awareness and cleaner driving
+                        habits.</p>
+                </article>
+                <article class="card">
+                    <span class="chip">Refresher Track</span>
+                    <h3>10-15 Hours Final Polish</h3>
+                    <p>For near-test-ready learners who need focused correction and exam-style route practice.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2 class="title">Demo Image Gallery</h2>
+            <p class="lead">Sample premium visuals placed directly in the page design.</p>
+            <div class="gallery">
+                <article class="shot">
+                    <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" role="img"
+                        aria-label="Instructor and learner visual">
+                        <defs>
+                            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#98dbff" />
+                                <stop offset="100%" stop-color="#dff3ff" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="500" height="280" fill="url(#g1)" />
+                        <rect y="206" width="500" height="74" fill="#5f8f75" />
+                        <rect x="95" y="128" width="315" height="83" rx="18" fill="#145989" />
+                        <rect x="150" y="102" width="145" height="38" rx="10" fill="#c8edff" />
+                        <circle cx="160" cy="214" r="24" fill="#21344f" />
+                        <circle cx="345" cy="214" r="24" fill="#21344f" />
+                    </svg>
+                    <p>Personal coaching sessions with practical road drills.</p>
+                </article>
+
+                <article class="shot">
+                    <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" role="img"
+                        aria-label="Dashboard training visual">
+                        <defs>
+                            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#1f3a66" />
+                                <stop offset="100%" stop-color="#0f2444" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="500" height="280" fill="url(#g2)" />
+                        <circle cx="250" cy="160" r="85" fill="#162c4f" stroke="#3f6296" stroke-width="7" />
+                        <circle cx="250" cy="160" r="35" fill="#3f6296" />
+                        <rect x="78" y="46" width="344" height="56" rx="10" fill="#2a4674" />
+                        <rect x="98" y="60" width="96" height="28" rx="7" fill="#7cdcff" />
+                        <rect x="208" y="60" width="96" height="28" rx="7" fill="#7cdcff" />
+                        <rect x="318" y="60" width="84" height="28" rx="7" fill="#7cdcff" />
+                    </svg>
+                    <p>Control-focused training for smoother decisions.</p>
+                </article>
+
+                <article class="shot">
+                    <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" role="img"
+                        aria-label="Test pass visual">
+                        <defs>
+                            <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#ffe2a5" />
+                                <stop offset="100%" stop-color="#fff6df" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="500" height="280" fill="url(#g3)" />
+                        <rect y="207" width="500" height="73" fill="#759f78" />
+                        <rect x="95" y="129" width="315" height="80" rx="18" fill="#1e5079" />
+                        <rect x="146" y="104" width="162" height="36" rx="10" fill="#bce8ff" />
+                        <rect x="336" y="55" width="78" height="98" rx="8" fill="#fff" stroke="#d8dfe8" />
+                        <polyline points="351,109 367,124 399,82" fill="none" stroke="#22a06b" stroke-width="8"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p>Exam-ready confidence with final checklist practice.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="process">
+            <h2 class="title">How It Works</h2>
+            <p class="lead">A simple process designed for consistent progress.</p>
+            <div class="steps">
+                <article class="step">
+                    <h3>Assess</h3>
+                    <p>We review your level, schedule, and target timeline.</p>
+                </article>
+                <article class="step">
+                    <h3>Train</h3>
+                    <p>You get structured lessons with practical improvement goals.</p>
+                </article>
+                <article class="step">
+                    <h3>Pass</h3>
+                    <p>You complete mock-test drills and final confidence preparation.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2 class="title">Frequently Asked Questions</h2>
+            <p class="lead">Quick answers before you start.</p>
+            <div class="faq">
+                <div class="faq-item open">
+                    <button class="faq-btn" type="button">Do you offer manual and automatic lessons?</button>
+                    <div class="faq-content">Yes. We provide both options and help you choose based on confidence,
+                        goals, and timeline.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-btn" type="button">Can I choose intensive or flexible lessons?</button>
+                    <div class="faq-content">Yes. You can select session intensity from shorter daily lessons to
+                        intensive multi-hour blocks.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-btn" type="button">What is included before the practical test?</button>
+                    <div class="faq-content">You receive mock route practice, correction sessions, and a final test-day
+                        preparation checklist.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta" id="contact">
+            <div>
+                <h3>Ready to begin your driving journey?</h3>
+                <p>Call: 0333 123 4949 | Email: hello@northstar.local</p>
+            </div>
+            <a class="btn primary" href="#home">Start Now</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">2026 Northstar Driving Studio. All rights reserved.</div>
+    </footer>
+
+    <script>
+        var faqButtons = document.querySelectorAll('.faq-btn');
+        faqButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                button.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+
+</html>
